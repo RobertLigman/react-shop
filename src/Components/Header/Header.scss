@@ -1,0 +1,21 @@
+.header {
+    &-list {
+        // padding: 15px 0;
+        display: grid;
+        list-style: none;
+        background-color: #333;
+        color: #999999;
+        font-weight: 400;
+        font-size: 0.9rem;
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+        &__item {
+            padding: 13px;
+        }
+    }
+}
+
+.cart {
+    color: white;
+    background-color: #00c8c8;
+}

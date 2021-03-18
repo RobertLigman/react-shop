@@ -1,0 +1,24 @@
+.header-list {
+  display: -ms-grid;
+  display: grid;
+  list-style: none;
+  background-color: #333;
+  color: #999999;
+  font-weight: 400;
+  font-size: 0.9rem;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header-list__item {
+  padding: 13px;
+}
+
+.cart {
+  color: white;
+  background-color: #00c8c8;
+}
+/*# sourceMappingURL=Header.css.map */
