@@ -23,6 +23,7 @@
     padding: 10px 25px;
     text-decoration: none;
     font-weight: 500;
+    transition: all 0.3s ease-in-out;
 }
 
 .main-title {
@@ -30,6 +31,7 @@
     color: #575153;
     font-weight: 700;
     letter-spacing: 30px;
+    user-select: none;
 }
 
 .hero__header__list {
@@ -45,7 +47,8 @@
     flex-direction: column;
     text-transform: uppercase;
     font-weight: 400;
-    padding: 10px;
+    padding: 35px 15px;
+    position: relative;
 }
 
 .text-logo {
@@ -80,5 +83,20 @@
         position: absolute;
         bottom: 14%;
         right: 25%;
+    }
+    .hero__button:hover {
+        color: #f8f8f8;
+        background-color: #575153;
+    }
+    .hidden-list {
+        opacity: 0;
+        display: none;
+        position: absolute;
+        top: 100px;
+        grid-template-columns: 1fr 1fr;
+    }
+    .list__item:hover .hidden-list {
+        opacity: 1;
+        display: grid;
     }
 }
