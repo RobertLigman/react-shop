@@ -4,6 +4,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Header.css";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 const Header = () => {
   const toggleShop = () => {
     console.log("Shopping Cart here");
@@ -16,10 +17,8 @@ const Header = () => {
         </li>
         <li className="header-list__item">Register</li>
         <li className="header-list__item">Sign In</li>
-        <li className="header-list__item cart" onClick={toggleShop}>
-          <FontAwesomeIcon icon={faShoppingCart} /> empty{" "}
-          <FontAwesomeIcon icon={faChevronDown} />
-        </li>
+
+        <ShoppingCart clicked={toggleShop} />
       </ul>
     </header>
   );

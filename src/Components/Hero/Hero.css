@@ -94,6 +94,7 @@
         position: absolute;
         top: 100px;
         grid-template-columns: 1fr 1fr;
+        transition: opacity 0.3s ease-in-out;
     }
     .list__item:hover .hidden-list {
         opacity: 1;

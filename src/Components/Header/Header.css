@@ -40,5 +40,13 @@
   .header-list__item:last-child {
     margin-left: 80px;
   }
+  .cart {
+    position: relative;
+  }
+  .cart:hover .hidden-list {
+    opacity: 1;
+    display: -ms-grid;
+    display: grid;
+  }
 }
 /*# sourceMappingURL=Header.css.map */

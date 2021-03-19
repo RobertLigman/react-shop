@@ -1,0 +1,22 @@
+.cart {
+    position: relative;
+}
+
+.shopping-cart {
+    color: black;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    position: absolute;
+    top: 44px;
+    left: -10px;
+    z-index: 1000;
+    opacity: 0;
+    display: none;
+}
+
+.cart:hover .shopping-cart {
+    display: grid;
+    opacity: 1;
+}
