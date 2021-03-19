@@ -33,10 +33,10 @@ export default function Hero() {
             <FontAwesomeIcon icon={faSearch} />
           </li>
         </ul>
-        <Link to="" className="hero__button">
-          shop men's collection
-        </Link>
       </header>
+      <Link to="" className="hero__button">
+        shop men's collection
+      </Link>
     </main>
   );
 }

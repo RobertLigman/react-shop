@@ -6,7 +6,7 @@
 }
 
 #root {
-    width: 100%;
+    width: 100vw;
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
     display: grid;
@@ -21,4 +21,10 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@media (min-width: 1024px) {
+    #root {
+        width: 100%;
+    }
 }

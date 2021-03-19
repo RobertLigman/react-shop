@@ -5,7 +5,6 @@
 
 .header-list {
   text-align: left;
-  max-width: 1200px;
   margin: auto;
   display: -ms-grid;
   display: grid;
@@ -29,12 +28,17 @@
   cursor: pointer;
 }
 
-.header-list__item:last-child {
-  margin-left: 80px;
-}
-
 .cart {
   color: white;
   background-color: #00c8c8;
+}
+
+@media (min-width: 1200px) {
+  .header-list {
+    max-width: 1200px;
+  }
+  .header-list__item:last-child {
+    margin-left: 80px;
+  }
 }
 /*# sourceMappingURL=Header.css.map */
