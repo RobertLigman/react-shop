@@ -36,6 +36,11 @@ const reducer = (state = initialState, action) => {
         )[0],
       };
     }
+    case "SET_LOGIN_DETAILS":
+      return {
+        ...state,
+        loginDetails: action.details,
+      };
   }
   return state;
 };

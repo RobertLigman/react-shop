@@ -8,9 +8,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/register">
-          <Register />
-        </Route>
+        <Route path="/register" component={Register}></Route>
         <Route>
           <Header />
           <Hero />
