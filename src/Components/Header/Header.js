@@ -32,16 +32,24 @@ const Header = (props) => {
             </div>
           </div>
         </li>
-        <li className="header-list__item">
-          <Link className="link " to="/Register">
-            Register
-          </Link>
-        </li>
-        <li className="header-list__item">
-          <Link className="link " to="/Register">
-            Sign In
-          </Link>
-        </li>
+        {props.loginDetails.isLogged ? (
+          <li className="header-list__item">
+            Logged as: {props.loginDetails.name}
+          </li>
+        ) : (
+          <>
+            <li className="header-list__item">
+              <Link className="link " to="/Register">
+                Register
+              </Link>
+            </li>
+            <li className="header-list__item">
+              <Link className="link " to="/Register">
+                Sign In
+              </Link>
+            </li>
+          </>
+        )}
 
         <ShoppingCart clicked={toggleShop} />
       </ul>
@@ -53,6 +61,7 @@ const mapStateToProps = (state) => {
   return {
     currency: state.currency,
     currencyOptions: state.currencyOptions,
+    loginDetails: state.loginDetails,
   };
 };
 const mapDispatchToProps = (dispatch) => {

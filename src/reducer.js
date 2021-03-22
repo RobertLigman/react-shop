@@ -1,6 +1,12 @@
 const initialState = {
   currency: "GBP",
   currencyOptions: ["GBP", "PLN", "USD"],
+  loginDetails: {
+    isLogged: false,
+    name: "",
+    email: "",
+    password: "",
+  },
   cart: [
     {
       id: 1,
