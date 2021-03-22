@@ -3,9 +3,11 @@ import {
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Header.css";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
-const Header = () => {
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import "./Header.css";
+const Header = (props) => {
   const toggleShop = () => {
     console.log("Shopping Cart here");
   };
@@ -13,14 +15,50 @@ const Header = () => {
     <header className="header">
       <ul className="header-list">
         <li className="header-list__item">
-          Currency: GBP <FontAwesomeIcon icon={faChevronDown} />
+          <div className="currency-select">
+            Currency: {props.currency} <FontAwesomeIcon icon={faChevronDown} />
+            <div className="currency-options">
+              {props.currencyOptions.map((el) => (
+                <button
+                  key={el}
+                  val={el}
+                  onClick={() => {
+                    console.log(el);
+                    props.handleCurrencyChange(el);
+                  }}>
+                  {el}
+                </button>
+              ))}
+            </div>
+          </div>
         </li>
-        <li className="header-list__item">Register</li>
-        <li className="header-list__item">Sign In</li>
+        <li className="header-list__item">
+          <Link className="link " to="/Register">
+            Register
+          </Link>
+        </li>
+        <li className="header-list__item">
+          <Link className="link " to="/Register">
+            Sign In
+          </Link>
+        </li>
 
         <ShoppingCart clicked={toggleShop} />
       </ul>
     </header>
   );
 };
-export default Header;
+
+const mapStateToProps = (state) => {
+  return {
+    currency: state.currency,
+    currencyOptions: state.currencyOptions,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleCurrencyChange: (currencyName) =>
+      dispatch({ type: "CHANGE_CURRENCY", currencyName }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

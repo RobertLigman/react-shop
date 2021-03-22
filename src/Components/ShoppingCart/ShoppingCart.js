@@ -14,7 +14,7 @@ function ShoppingCart(props) {
       <FontAwesomeIcon icon={faChevronDown} />
       <div className="shopping-cart">
         {props.cart.map((el) => (
-          <div className="product">
+          <div className="product" key={el.id}>
             <img src={el.img} alt="" />
             <p>{el.name}</p>
             <p>
