@@ -33,9 +33,14 @@ const Header = (props) => {
           </div>
         </li>
         {props.loginDetails.isLogged ? (
-          <li className="header-list__item">
-            Logged as: {props.loginDetails.name}
-          </li>
+          <>
+            <li className="header-list__item">
+              Logged as: {props.loginDetails.email}
+            </li>
+            <li className="header-list__item" onClick={props.logOut}>
+              Log Out
+            </li>
+          </>
         ) : (
           <>
             <li className="header-list__item">
@@ -44,7 +49,7 @@ const Header = (props) => {
               </Link>
             </li>
             <li className="header-list__item">
-              <Link className="link " to="/Register">
+              <Link className="link " to="/login">
                 Sign In
               </Link>
             </li>
@@ -68,6 +73,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleCurrencyChange: (currencyName) =>
       dispatch({ type: "CHANGE_CURRENCY", currencyName }),
+    logOut: () => dispatch({ type: "LOG_OUT" }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

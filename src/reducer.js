@@ -3,7 +3,6 @@ const initialState = {
   currencyOptions: ["GBP", "PLN", "USD"],
   loginDetails: {
     isLogged: false,
-    name: "",
     email: "",
     password: "",
   },
@@ -36,6 +35,11 @@ const reducer = (state = initialState, action) => {
         )[0],
       };
     }
+    case "LOG_OUT":
+      return {
+        ...state,
+        loginDetails: initialState.loginDetails,
+      };
     case "SET_LOGIN_DETAILS":
       return {
         ...state,
