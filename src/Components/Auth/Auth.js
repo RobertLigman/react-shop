@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Auth.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 function Auth(props) {
   const [details, setDetails] = useState({
     isLogged: props.isLogged,
@@ -82,8 +84,9 @@ function Auth(props) {
                 value={confPassword}
               />
             </div>
-            <div>
-              <input type="checkbox" name="singUp" id="signUp" />
+            <div className="checkbox-wrapper">
+              <input type="checkbox" name="signUp" id="signUp" />
+              <label for="signUp" className="checkmark"></label>
               <label htmlFor="signUp">
                 Sign Up for exlusive updates, discounts, new arrivals,contests,
                 and more
@@ -93,21 +96,28 @@ function Auth(props) {
               <button
                 type="submit"
                 onClick={checkPasswords}
-                className="submit-button">
+                className="submit__button">
                 Create account
               </button>
               <p className="privacy-policy">
                 By Clicking 'Create Account', you agree to our
-                <Link to="/policy">Privacy Policy</Link>
+                <Link to="/policy" className="submit__link">
+                  {" "}
+                  Privacy Policy
+                  <FontAwesomeIcon icon={faLongArrowAltRight} />
+                </Link>
               </p>
             </div>
           </>
         ) : (
-          <div className="submit-container">
-            <button type="submit" className="submit-button">
+          <div className="submit-container submit">
+            <button type="submit" className="submit__button">
               Sign in
             </button>
-            <Link to="restorePassword">Forgot Password faArrow</Link>
+            <Link to="/restorePassword" className="submit__link">
+              Forgot your Password{" "}
+              <FontAwesomeIcon icon={faLongArrowAltRight} />
+            </Link>
           </div>
         )}
       </form>

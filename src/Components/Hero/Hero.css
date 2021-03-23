@@ -47,8 +47,34 @@
     flex-direction: column;
     text-transform: uppercase;
     font-weight: 400;
-    padding: 35px 15px;
+    padding: 35px 25px;
     position: relative;
+}
+
+
+/*searchbar section */
+
+.search-container {
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    position: relative;
+    color: #ccc;
+    background-color: transparent;
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding-right: 40px;
+    min-height: 20px;
+}
+
+.inputIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
 }
 
 .text-logo {

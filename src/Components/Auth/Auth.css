@@ -5,7 +5,6 @@
     width: 100vw;
     height: 100vh;
     color: #333;
-    background-color: ;
 }
 
 .Auth-form {
@@ -18,6 +17,10 @@
     border-radius: 10px;
     border: 1px solid #333;
     gap: 20px;
+}
+
+.auth-form__title {
+    text-transform: uppercase;
 }
 
 .input-element {
@@ -35,7 +38,11 @@
     align-items: center;
 }
 
-.submit-button {
+.privacy-policy {
+    font-size: 1rem;
+}
+
+.submit__button {
     background-color: #30d5c8;
     color: #fff;
     border: none;
@@ -48,7 +55,58 @@
     cursor: pointer;
 }
 
+.submit__link {
+    text-decoration: none;
+    color: #30d5c8;
+    text-align: right;
+}
+
 .submit-button--unactive {
     background-color: #444;
     color: #333;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+#signUp {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+#signUp~label {
+    cursor: pointer;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #222;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkmark::after {
+    content: "";
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(40deg);
+    /*       transition:all 2s; */
+}
+
+#signUp:checked~.checkmark::after {
+    display: inline-block;
+    opacity: 1;
 }

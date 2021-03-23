@@ -34,8 +34,10 @@ export default function Hero() {
           </li>
 
           <li className="list__item">
-            <input type="text" placeholder="search" />
-            <FontAwesomeIcon icon={faSearch} />
+            <div className="search-container">
+              <input type="text" placeholder="search" className="input" />
+              <FontAwesomeIcon icon={faSearch} className="inputIcon" />
+            </div>
           </li>
         </ul>
       </nav>
