@@ -9,7 +9,14 @@ const FetchStore = (props) => {
           "Access-Control-Allow-Origin": "*",
         },
       })
-      .then((res) => props.updateStoreStock(res.data));
+      .then((res) => {
+        const updatedData = res.data.map((el) => {
+          const imgSrc = el.image.split(".");
+          imgSrc.splice(1, 0, "herokuapp");
+          return { ...el, image: imgSrc.join(".") };
+        });
+        props.updateStoreStock(updatedData);
+      });
   }, []);
   return <></>;
 };

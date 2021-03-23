@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router";
 import Register from "./Components/Register/Register";
 import FetchStore from "./FetchStore";
 import Login from "./Components/Login/Login";
+import ProductsHome from "./Components/ProductsHome/ProductsHome";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
         <Route>
           <Header />
           <Hero />
+          <ProductsHome />
         </Route>
       </Switch>
     </div>
