@@ -13,19 +13,22 @@ function Auth(props) {
   const [confPassword, setConfPassword] = useState("");
   const [err, setErr] = useState("");
   const submitHandler = (e) => {
-    setErr("");
     e.preventDefault();
     console.log(e);
     if (err !== "") return;
-    if (details.password.split("").length < 6) {
-      setErr("password must contains at least 6 characters");
-    } else {
-      setDetails({ ...details, isLogged: true });
-      props.UserRegistration({ ...details, isLogged: true });
-      setErr("");
+    setErr("");
+    if (details.password.split("").length < 6)
+      return setErr("password must contains at least 6 characters");
 
-      props.history.push("/");
-    }
+    setDetails({ ...details, isLogged: true });
+    props.UserRegistration({ ...details, isLogged: true });
+    setErr("");
+
+    props.history.push("/");
+    localStorage.setItem(
+      "loginSession",
+      JSON.stringify({ ...details, isLogged: true })
+    );
 
     // setSubmit(false);
     // props.register(submit);
@@ -86,7 +89,7 @@ function Auth(props) {
             </div>
             <div className="checkbox-wrapper">
               <input type="checkbox" name="signUp" id="signUp" />
-              <label for="signUp" className="checkmark"></label>
+              <label htmlFor="signUp" className="checkmark"></label>
               <label htmlFor="signUp">
                 Sign Up for exlusive updates, discounts, new arrivals,contests,
                 and more

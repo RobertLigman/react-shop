@@ -1,7 +1,7 @@
 const initialState = {
   currency: "GBP",
   currencyOptions: ["GBP", "PLN", "USD"],
-  loginDetails: {
+  loginDetails: JSON.parse(localStorage.getItem("loginSession")) || {
     isLogged: false,
     email: "",
     password: "",
@@ -39,11 +39,17 @@ const reducer = (state = initialState, action) => {
         )[0],
       };
 
-    case "LOG_OUT":
+    case "LOG_OUT": {
+      localStorage.removeItem("loginSession");
       return {
         ...state,
-        loginDetails: initialState.loginDetails,
+        loginDetails: {
+          isLogged: false,
+          email: "",
+          password: "",
+        },
       };
+    }
     case "SET_LOGIN_DETAILS":
       return {
         ...state,
