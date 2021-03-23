@@ -9,9 +9,17 @@ const FetchStore = (props) => {
           "Access-Control-Allow-Origin": "*",
         },
       })
-      .then((res) => console.log(res.data));
+      .then((res) => props.updateStoreStock(res.data));
   }, []);
   return <></>;
 };
 
-export default FetchStore;
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateStoreStock: (items) => dispatch({ type: "UPDATE_STORE", items }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(FetchStore);

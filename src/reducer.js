@@ -20,21 +20,25 @@ const initialState = {
       img: "",
     },
   ],
+  products: "",
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "CHANGE_CURRENCY": {
-      console.log(
-        state.currencyOptions.filter((el) => el === action.currencyName)[0]
-      );
+    case "UPDATE_STORE":
+      return {
+        ...state,
+        products: action.items,
+      };
+
+    case "CHANGE_CURRENCY":
       return {
         ...state,
         currency: state.currencyOptions.filter(
           (el) => el === action.currencyName
         )[0],
       };
-    }
+
     case "LOG_OUT":
       return {
         ...state,
