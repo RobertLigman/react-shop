@@ -1,0 +1,54 @@
+.Auth-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: #333;
+    background-color: ;
+}
+
+.Auth-form {
+    min-width: 40%;
+    min-height: 70%;
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #333;
+    gap: 20px;
+}
+
+.input-element {
+    background-color: #222;
+    border: none;
+    width: 100%;
+    min-height: 35px;
+    padding: 0 10px;
+    color: white;
+}
+
+.submit-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+}
+
+.submit-button {
+    background-color: #30d5c8;
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 auto 0 0;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.submit-button--unactive {
+    background-color: #444;
+    color: #333;
+}
