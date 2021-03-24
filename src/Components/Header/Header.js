@@ -16,7 +16,7 @@ const Header = (props) => {
       <ul className="header-list">
         <li className="header-list__item">
           <div className="currency-select">
-            Currency: {props.currency.currencyName}
+            Currency: {props.currency.currencyName}{" "}
             <FontAwesomeIcon icon={faChevronDown} />
             <div className="currency-options">
               {props.currencyOptions.map(({ currencyName }) => (

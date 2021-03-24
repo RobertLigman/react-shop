@@ -14,7 +14,7 @@ function ProductsHome(props) {
                   className={`products-list__item item-nb-${index}`}>
                   {/* <div className="item__title">{el.title}</div> */}
                   <div className="item__price">
-                    {props.currency.currencySymbol}
+                    {props.currency.currencySymbol}{" "}
                     {(el.price * props.currency.currencyValue).toFixed(2)}
                   </div>
                   <div>

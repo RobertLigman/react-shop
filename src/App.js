@@ -7,6 +7,8 @@ import Register from "./Components/Register/Register";
 import FetchStore from "./FetchStore";
 import Login from "./Components/Login/Login";
 import ProductsHome from "./Components/ProductsHome/ProductsHome";
+import UsefullLinks from "./Components/UsefullLinks/UsefullLinks";
+import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
           <Header />
           <Hero />
           <ProductsHome />
+          <UsefullLinks />
+          <Footer />
         </Route>
       </Switch>
     </div>

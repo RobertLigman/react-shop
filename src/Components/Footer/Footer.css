@@ -1,0 +1,16 @@
+.footer {
+    width: 100%;
+    background-color: #333;
+    color: #999999;
+}
+
+.footer-grid {
+    min-height: 50px;
+    margin: auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    justify-items: start;
+    align-items: center;
+    gap: 20px;
+}
