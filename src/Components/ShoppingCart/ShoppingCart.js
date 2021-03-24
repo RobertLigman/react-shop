@@ -21,7 +21,7 @@ function ShoppingCart(props) {
               <p>{el.name}</p>
               <p>
                 {el.price}
-                {props.currency}
+                {props.currency.currencyName}
               </p>
             </div>
           ))

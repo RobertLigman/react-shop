@@ -1,6 +1,26 @@
 const initialState = {
-  currency: "GBP",
-  currencyOptions: ["GBP", "PLN", "USD"],
+  currency: {
+    currencyName: "GBP",
+    currencyValue: 0.73,
+    currencySymbol: "£",
+  },
+  currencyOptions: [
+    {
+      currencyName: "GBP",
+      currencyValue: 0.73,
+      currencySymbol: "£",
+    },
+    {
+      currencyName: "PLN",
+      currencyValue: 3.91,
+      currencySymbol: "zł",
+    },
+    {
+      currencyName: "USD",
+      currencyValue: 1,
+      currencySymbol: "$",
+    },
+  ],
   loginDetails: JSON.parse(localStorage.getItem("loginSession")) || {
     isLogged: false,
     email: "",
@@ -35,7 +55,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currency: state.currencyOptions.filter(
-          (el) => el === action.currencyName
+          (el) => el.currencyName === action.currencyName
         )[0],
       };
 

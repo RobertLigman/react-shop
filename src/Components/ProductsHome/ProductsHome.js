@@ -13,7 +13,10 @@ function ProductsHome(props) {
                   key={el.id}
                   className={`products-list__item item-nb-${index}`}>
                   {/* <div className="item__title">{el.title}</div> */}
-                  <div className="item__price">${el.price}</div>
+                  <div className="item__price">
+                    {props.currency.currencySymbol}
+                    {(el.price * props.currency.currencyValue).toFixed(2)}
+                  </div>
                   <div>
                     <img
                       src={el.image}
@@ -31,6 +34,7 @@ function ProductsHome(props) {
 const mapStateToProps = (state) => {
   return {
     productList: state.products,
+    currency: state.currency,
   };
 };
 const mapDispatchToProps = (dispatch) => {

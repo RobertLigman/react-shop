@@ -16,17 +16,18 @@ const Header = (props) => {
       <ul className="header-list">
         <li className="header-list__item">
           <div className="currency-select">
-            Currency: {props.currency} <FontAwesomeIcon icon={faChevronDown} />
+            Currency: {props.currency.currencyName}
+            <FontAwesomeIcon icon={faChevronDown} />
             <div className="currency-options">
-              {props.currencyOptions.map((el) => (
+              {props.currencyOptions.map(({ currencyName }) => (
                 <button
-                  key={el}
-                  val={el}
+                  key={currencyName}
+                  val={currencyName}
                   onClick={() => {
-                    console.log(el);
-                    props.handleCurrencyChange(el);
+                    console.log(currencyName);
+                    props.handleCurrencyChange(currencyName);
                   }}>
-                  {el}
+                  {currencyName}
                 </button>
               ))}
             </div>
