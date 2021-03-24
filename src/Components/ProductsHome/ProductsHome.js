@@ -1,19 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
+import "./ProductsHome.css";
 function ProductsHome(props) {
   return (
-    <ul>
-      {props.productList !== "" &&
-        props.productList.map((el) => (
-          <li key={el.id}>
-            <div>{el.title}</div>
-            <div>{el.price}</div>
-            <div>
-              <img src={el.image} alt={el.title} />
-            </div>
-          </li>
-        ))}
-    </ul>
+    <div>
+      <ul className="products-list">
+        {props.productList !== "" &&
+          props.productList.map((el, index) => {
+            if (index <= 5)
+              return (
+                <li
+                  key={el.id}
+                  className={`products-list__item item-nb-${index}`}>
+                  {/* <div className="item__title">{el.title}</div> */}
+                  <div className="item__price">${el.price}</div>
+                  <div>
+                    <img
+                      src={el.image}
+                      alt={el.title}
+                      className="product-img"
+                    />
+                  </div>
+                </li>
+              );
+          })}
+      </ul>
+    </div>
   );
 }
 const mapStateToProps = (state) => {

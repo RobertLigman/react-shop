@@ -5,6 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./ShoppingCart.css";
 
 function ShoppingCart(props) {
@@ -13,16 +14,23 @@ function ShoppingCart(props) {
       <FontAwesomeIcon icon={faShoppingCart} /> empty
       <FontAwesomeIcon icon={faChevronDown} />
       <div className="shopping-cart">
-        {props.cart.map((el) => (
-          <div className="product" key={el.id}>
-            <img src={el.img} alt="" />
-            <p>{el.name}</p>
-            <p>
-              {el.price}
-              {props.currency}
-            </p>
+        {props.cart.length > 0 ? (
+          props.cart.map((el) => (
+            <div className="product" key={el.id}>
+              <img src={el.img} alt="" />
+              <p>{el.name}</p>
+              <p>
+                {el.price}
+                {props.currency}
+              </p>
+            </div>
+          ))
+        ) : (
+          <div className="product">
+            <p>koszyk jest pusty</p>
           </div>
-        ))}
+        )}
+        <Link to="/yourCart">Przejdź do koszyka</Link>
       </div>
     </li>
   );
