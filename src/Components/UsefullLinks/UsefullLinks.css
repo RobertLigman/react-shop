@@ -29,7 +29,8 @@
     padding: 5px 0;
 }
 
-.UsefullLinks__link {
+.UsefullLinks__link,
+.UsefullLinks__text {
     text-decoration: none;
     color: #616161;
     font-size: 0.9rem;
@@ -61,4 +62,27 @@
 
 .banner--light {
     background-color: #00c8c8;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-items: center;
+    gap: 30px;
+    align-items: center;
+}
+
+.banner__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    transition: transform 0.2s linear;
+}
+
+.banner__link:hover {
+    transform: scale(1.2);
+}
+
+.banner__subtitle {
+    font-weight: 400;
 }
