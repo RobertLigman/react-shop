@@ -65,7 +65,7 @@
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    opacity: 1;
+    /* opacity: 1; */
     position: absolute;
     background-color: #fff;
     width: 100%;

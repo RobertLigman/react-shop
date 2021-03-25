@@ -11,26 +11,33 @@ import "./ShoppingCart.css";
 function ShoppingCart(props) {
   return (
     <li className="header-list__item cart" onClick={props.clicked}>
-      <FontAwesomeIcon icon={faShoppingCart} /> empty
+      <FontAwesomeIcon icon={faShoppingCart} />{" "}
+      {props.cart.length > 0 ? props.cart.length : "empty"}
       <FontAwesomeIcon icon={faChevronDown} />
       <div className="shopping-cart">
+        <h3 className="shopping-cart__title">Shopping Cart</h3>
         {props.cart.length > 0 ? (
-          props.cart.map((el) => (
-            <div className="product" key={el.id}>
-              <img src={el.img} alt="" />
-              <p>{el.title.split(" ")[0]} ...</p>
-              <p>
-                {(el.price * props.currency.currencyValue).toFixed(2)}
-                {props.currency.currencyName}
-              </p>
-            </div>
-          ))
+          props.cart.map((el, index) => {
+            if (index < 4)
+              return (
+                <div className="product" key={el.id}>
+                  <img src={el.img} alt="" />
+                  <p>{el.title.split(" ")[0]} ...</p>
+                  <p>
+                    {(el.price * props.currency.currencyValue).toFixed(2)}
+                    {props.currency.currencyName}
+                  </p>
+                </div>
+              );
+          })
         ) : (
           <div className="product">
             <p>koszyk jest pusty</p>
           </div>
         )}
-        <Link to="/yourCart">Przejdź do koszyka</Link>
+        <Link to="/yourCart" className="shopping-cart__link">
+          Przejdź do koszyka
+        </Link>
       </div>
     </li>
   );
