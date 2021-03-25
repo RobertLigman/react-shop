@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { connect } from "react-redux";
 import "./ProductsHome.css";
@@ -26,12 +28,15 @@ function ProductsHome(props) {
                   </div>
 
                   <div className="products-list__sub-item">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Eius, deleniti.
-                    </p>
-                    <button onClick={() => props.addToCart(el)}>
-                      Add to Cart
+                    <h3 className="sub-item__title">
+                      {el.title} {props.currency.currencySymbol}
+                      {el.price}
+                    </h3>
+                    <p className="sub-item__description">{el.description}</p>
+                    <button
+                      className="sub-item__button"
+                      onClick={() => props.addToCart(el)}>
+                      <FontAwesomeIcon icon={faShoppingCart} />
                     </button>
                   </div>
                 </li>

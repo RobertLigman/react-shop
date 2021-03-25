@@ -25,13 +25,13 @@ export default function Hero() {
             classNames="list__item">
             <HiddenList gender="female" />
           </ListItem>
-          <li className="list__item">The Brand</li>
-          <li className="list__item">
+          <ListItem classNames="list__item">The Brand</ListItem>
+          <ListItem classNames="list__item">
             local stores <FontAwesomeIcon icon={faChevronDown} />
-          </li>
-          <li className="list__item">
+          </ListItem>
+          <ListItem classNames="list__item">
             look book <FontAwesomeIcon icon={faChevronDown} />
-          </li>
+          </ListItem>
 
           <li className="list__item">
             <div className="search-container">
