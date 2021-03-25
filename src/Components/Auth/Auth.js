@@ -39,6 +39,14 @@ function Auth(props) {
       setErr("Password do not match!");
     }
   };
+  if (props.isLogged)
+    return (
+      <div>
+        <div>You are already Logged In</div>
+        <Link to="/">Go to Main Page</Link>
+      </div>
+    );
+
   return (
     <div className="Auth-outer">
       <form onSubmit={submitHandler} className="Auth-form">

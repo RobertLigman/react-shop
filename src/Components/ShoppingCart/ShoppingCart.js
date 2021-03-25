@@ -20,7 +20,7 @@ function ShoppingCart(props) {
               <img src={el.img} alt="" />
               <p>{el.title.split(" ")[0]} ...</p>
               <p>
-                {el.price}
+                {(el.price * props.currency.currencyValue).toFixed(2)}
                 {props.currency.currencyName}
               </p>
             </div>

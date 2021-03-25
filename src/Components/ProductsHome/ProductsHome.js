@@ -5,6 +5,14 @@ import { connect } from "react-redux";
 import "./ProductsHome.css";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 function ProductsHome(props) {
+  const addToCartHandler = (item) => {
+    const isInCart = props.cart.find((el) => el.title == item.title);
+    if (isInCart) {
+      console.log("item jest juz w koszyku");
+      return;
+    }
+    props.addToCart(item);
+  };
   return (
     <>
       <div>
@@ -32,12 +40,12 @@ function ProductsHome(props) {
                     <div className="products-list__sub-item">
                       <h3 className="sub-item__title">
                         {el.title} {props.currency.currencySymbol}
-                        {el.price}
+                        {(el.price * props.currency.currencyValue).toFixed(2)}
                       </h3>
                       <p className="sub-item__description">{el.description}</p>
                       <button
                         className="sub-item__button"
-                        onClick={() => props.addToCart(el)}>
+                        onClick={() => addToCartHandler(el)}>
                         <FontAwesomeIcon icon={faShoppingCart} />
                       </button>
                     </div>
@@ -54,6 +62,7 @@ const mapStateToProps = (state) => {
   return {
     productList: state.products,
     currency: state.currency,
+    cart: state.cart,
   };
 };
 const mapDispatchToProps = (dispatch) => {
