@@ -22,7 +22,7 @@ function UsefullLinks() {
         <ul className="UsefullLinks__list">
           <p className="UsefullLinks__subtitle">information</p>
           {information.map((el) => (
-            <li className="UsefullLinks__item">
+            <li className="UsefullLinks__item" key={el.name}>
               <Link to={`/${el.link}`} className="UsefullLinks__link">
                 {el.name}
               </Link>
@@ -33,7 +33,7 @@ function UsefullLinks() {
         <ul className="UsefullLinks__list">
           <p className="UsefullLinks__subtitle">why buy from us</p>
           {whyBuy.map((el) => (
-            <li className="UsefullLinks__item">
+            <li className="UsefullLinks__item" key={el.name}>
               <Link to={`/${el.link}`} className="UsefullLinks__link">
                 {el.name}
               </Link>
@@ -43,7 +43,7 @@ function UsefullLinks() {
         <ul className="UsefullLinks__list">
           <p className="UsefullLinks__subtitle">your Account</p>
           {yourAccount.map((el) => (
-            <li className="UsefullLinks__item">
+            <li className="UsefullLinks__item" key={el.name}>
               <Link to={`/${el.link}`} className="UsefullLinks__link">
                 {el.name}
               </Link>
@@ -53,7 +53,7 @@ function UsefullLinks() {
         <ul className="UsefullLinks__list">
           <p className="UsefullLinks__subtitle">lookbook</p>
           {lookbook.map((el) => (
-            <li className="UsefullLinks__item">
+            <li className="UsefullLinks__item" key={el.name}>
               <Link to={`/${el.link}`} className="UsefullLinks__link">
                 {el.name}
               </Link>
@@ -63,7 +63,7 @@ function UsefullLinks() {
         <ul className="UsefullLinks__list">
           <p className="UsefullLinks__subtitle">contact Details</p>
           {contactDetails.map((el) => (
-            <li className="UsefullLinks__item">
+            <li className="UsefullLinks__item" key={el.name}>
               <p className="UsefullLinks__text">{el.name}</p>
             </li>
           ))}

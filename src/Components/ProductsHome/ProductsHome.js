@@ -24,6 +24,16 @@ function ProductsHome(props) {
                       className="product-img"
                     />
                   </div>
+
+                  <div className="products-list__sub-item">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eius, deleniti.
+                    </p>
+                    <button onClick={() => props.addToCart(el)}>
+                      Add to Cart
+                    </button>
+                  </div>
                 </li>
               );
           })}
@@ -38,6 +48,8 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    addToCart: (product) => dispatch({ type: "ADD_PRODUCT_TO_CART", product }),
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsHome);

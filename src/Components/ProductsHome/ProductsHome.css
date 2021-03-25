@@ -44,9 +44,41 @@
     position: relative;
     border-radius: 20px;
     padding: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 0 0 10px 0 #ddd;
+    cursor: pointer;
+    /* transition: transform  .2s ease-in; */
     /* background-color: #f8f8f8; */
+}
+
+.products-list__item:hover {
+    /* transform: scale(1.05); */
+    border-radius: 20px 20px 0 0;
+}
+
+.products-list__sub-item {
+    opacity: 0;
+    visibility: hidden;
+    /* display: block;
+    opacity: 1; */
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+    transition: opacity 0.2s ease-in;
+}
+
+.products-list__sub-item:hover {
+    display: block;
+    opacity: 1;
+}
+
+.products-list__item:hover>.products-list__sub-item {
+    visibility: visible;
+    opacity: 1;
 }
 
 .item__price {
@@ -57,4 +89,5 @@
 
 .product-img {
     width: 100%;
+    z-index: 1;
 }

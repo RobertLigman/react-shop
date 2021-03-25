@@ -29,13 +29,13 @@ const initialState = {
   cart: [
     {
       id: 1,
-      name: "Jacket",
+      title: "Jacket",
       price: 22.33,
       img: "",
     },
     {
       id: 2,
-      name: "T Shirt",
+      title: "T Shirt",
       price: 11.99,
       img: "",
     },
@@ -58,7 +58,11 @@ const reducer = (state = initialState, action) => {
           (el) => el.currencyName === action.currencyName
         )[0],
       };
-
+    case "ADD_PRODUCT_TO_CART":
+      return {
+        ...state,
+        cart: state.cart.concat(action.product),
+      };
     case "LOG_OUT": {
       localStorage.removeItem("loginSession");
       return {
