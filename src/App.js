@@ -9,6 +9,7 @@ import Login from "./Components/Login/Login";
 import ProductsHome from "./Components/ProductsHome/ProductsHome";
 import UsefullLinks from "./Components/UsefullLinks/UsefullLinks";
 import Footer from "./Components/Footer/Footer";
+import FullCart from "./Components/FullCart/FullCart";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,19 @@ function App() {
       <Switch>
         <Route path="/register" component={Register}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route
+          path="/yourCart"
+          render={() => (
+            <>
+              <Header />
+              <FullCart />
+              <UsefullLinks />
+              <Footer />
+            </>
+          )}
+        />
+
+        {/* </Route> */}
         <Route>
           <Header />
           <Hero />
