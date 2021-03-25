@@ -1,0 +1,5 @@
+.horizontal-line {
+    max-width: 80vw;
+    margin: 50px auto;
+    border-bottom: 1px solid #ddd;
+}
