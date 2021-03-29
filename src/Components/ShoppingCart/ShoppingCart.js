@@ -11,9 +11,12 @@ import "./ShoppingCart.css";
 function ShoppingCart(props) {
   return (
     <li className="header-list__item cart" onClick={props.clicked}>
-      <FontAwesomeIcon icon={faShoppingCart} />{" "}
-      {props.cart.length > 0 ? props.cart.length : "empty"}
-      <FontAwesomeIcon icon={faChevronDown} />
+      <Link to="/yourCart" className="cart__link">
+        {/* <Link to="/yourCart" className="cart__link"> */}
+        <FontAwesomeIcon icon={faShoppingCart} />{" "}
+        {props.cart.length > 0 ? props.cart.length : "empty"}
+        <FontAwesomeIcon icon={faChevronDown} />
+      </Link>
       <div className="shopping-cart">
         <h3 className="shopping-cart__title">Shopping Cart</h3>
         {props.cart.length > 0 ? (
@@ -29,6 +32,7 @@ function ShoppingCart(props) {
                   </p>
                 </div>
               );
+            return <></>;
           })
         ) : (
           <div className="product">

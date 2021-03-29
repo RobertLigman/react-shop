@@ -1,18 +1,19 @@
 .LookBook {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-row: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     gap: 20px;
 }
 
 .lookbook__item {
     background-color: #f8f8f8;
     color: #575153;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     /* align-items: center; */
-    text-align: right;
+    text-align: center;
     /* justify-content: space-between; */
 }
 
@@ -32,7 +33,7 @@ h2[class*="item__"] {
     flex-direction: column;
     margin-top: 40px;
     /* justify-content: center; */
-    align-items: flex-end;
+    align-items: center;
     /* align-items: center; */
 }
 
@@ -62,4 +63,19 @@ h2[class*="item__"] {
     background-color: #00c8c8;
     border-color: #00c8c8;
     color: #fff;
+}
+
+@media (min-width: 1200px) {
+    .LookBook {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .lookbook__item {
+        grid-template-columns: 1fr 1fr;
+        text-align: right;
+        padding: 20px 20px 0 20px;
+    }
+    .item__side {
+        align-items: flex-end;
+    }
 }

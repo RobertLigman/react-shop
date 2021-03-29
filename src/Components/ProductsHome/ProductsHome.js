@@ -6,7 +6,7 @@ import "./ProductsHome.css";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 function ProductsHome(props) {
   const addToCartHandler = (item) => {
-    const isInCart = props.cart.find((el) => el.title == item.title);
+    const isInCart = props.cart.find((el) => el.title === item.title);
     if (isInCart) {
       console.log("item jest juz w koszyku");
       return;

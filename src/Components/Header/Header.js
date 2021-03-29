@@ -1,7 +1,4 @@
-import {
-  faChevronDown,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { Link } from "react-router-dom";
