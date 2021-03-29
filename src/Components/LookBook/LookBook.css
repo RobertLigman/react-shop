@@ -1,0 +1,65 @@
+.LookBook {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 1fr;
+    gap: 20px;
+}
+
+.lookbook__item {
+    background-color: #f8f8f8;
+    color: #575153;
+    padding: 20px 20px 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* align-items: center; */
+    text-align: right;
+    /* justify-content: space-between; */
+}
+
+h2[class*="item__"] {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.item__img-container {
+    max-height: 400px;
+    text-align: center;
+}
+
+.item__side {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    /* justify-content: center; */
+    align-items: flex-end;
+    /* align-items: center; */
+}
+
+.item__img-container img {
+    height: 100%;
+}
+
+.item__subtitle {
+    font-weight: 400;
+}
+
+.item__text {
+    margin-top: 15px;
+    font-size: 0.8rem;
+}
+
+.item__link {
+    margin-top: 15px;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #575153;
+    border: 2px solid #575153;
+    transition: all 0.2s ease-in-out;
+}
+
+.item__link:hover {
+    background-color: #00c8c8;
+    border-color: #00c8c8;
+    color: #fff;
+}

@@ -10,6 +10,7 @@ import ProductsHome from "./Components/ProductsHome/ProductsHome";
 import UsefullLinks from "./Components/UsefullLinks/UsefullLinks";
 import Footer from "./Components/Footer/Footer";
 import FullCart from "./Components/FullCart/FullCart";
+import LookBook from "./Components/LookBook/LookBook";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
           <Header />
           <Hero />
           <ProductsHome />
+          <LookBook />
           <UsefullLinks />
           <Footer />
         </Route>
