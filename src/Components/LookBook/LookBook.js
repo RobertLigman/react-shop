@@ -45,7 +45,7 @@ function LookBook() {
               <h2 className="item__subtitle">Lookbook</h2>
               <p className="item__text">{el.text}</p>
               <Link
-                to={`/view ${el.linkname} look book `}
+                to={`/view ${el.linkname} look book`}
                 className="item__link">
                 view now
               </Link>

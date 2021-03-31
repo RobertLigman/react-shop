@@ -1,5 +1,5 @@
 .btn-delete {
-    background-color: red;
+    background-color: lightgray;
     color: #fff;
     padding: 5px;
     border: none;
@@ -81,4 +81,14 @@
 .cart:hover .shopping-cart {
     visibility: visible;
     opacity: 1;
+}
+
+@media (min-width: 1200px) {
+    .btn-delete {
+        background-color: lightgray;
+        transition: all 0.2s linear;
+    }
+    .btn-delete:hover {
+        background-color: red;
+    }
 }

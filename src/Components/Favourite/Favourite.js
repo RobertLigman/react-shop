@@ -1,14 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "./FullCart.css";
-function FullCart(props) {
-  console.log(props.cart);
-  return props.cart.length > 0 ? (
+function Favourite(props) {
+  return props.favourite.length > 0 ? (
     <div className="Full-cart">
-      {props.cart.map((el, index) => (
+      {props.favourite.map((el) => (
         <div className="Full-cart__product" key={el.id}>
           <img src={el.image} alt="" className="product__img" />
           <p>{el.title}</p>
@@ -18,29 +16,30 @@ function FullCart(props) {
           </p>
           <button
             className="btn-delete"
-            onClick={() => props.deleteFromCart(el)}>
+            onClick={() => props.removeFromFavourite(el)}>
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>
       ))}
-      <Link to="/">Return to main page</Link>
-      <button className="btn-checkout">Checkout</button>
     </div>
   ) : (
     <div>
-      <h1>Cart is Empty</h1>
-      <Link to="/">Return to main page</Link>
+      <h1>No Favourite Products found</h1>
+      <Link to="/">Return to Main Page</Link>
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    favourite: state.favourite,
     currency: state.currency,
   };
 };
-const mapDispatchToProps = (disptach) => {
-  return {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeFromFavourite: (product) =>
+      dispatch({ type: "REMOVE_FROM_FAVOURITE", product }),
+  };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(FullCart);
+export default connect(mapStateToProps, mapDispatchToProps)(Favourite);

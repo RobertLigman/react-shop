@@ -25,7 +25,7 @@ function ShoppingCart(props) {
             if (index < 4)
               return (
                 <div className="product" key={el.id}>
-                  <img src={el.img} alt="" />
+                  <img src={el.image} alt="" className="product__img" />
                   <p>{el.title.split(" ")[0]} ...</p>
                   <p>
                     {(el.price * props.currency.currencyValue).toFixed(2)}

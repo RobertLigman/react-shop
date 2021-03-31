@@ -1,26 +1,39 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./ProductsHome.css";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import AddToCartInfo from "../AddToCartInfo/AddToCartInfo";
 function ProductsHome(props) {
+  const [text, setText] = useState("");
   const addToCartHandler = (item) => {
     const isInCart = props.cart.find((el) => el.title === item.title);
     if (isInCart) {
-      console.log("item jest juz w koszyku");
+      console.log("item is already in cart");
 
       return;
     }
+    setText("Added To Cart");
     props.addToCartInfoHandler();
     props.addToCart(item);
+  };
+  const addToFavourite = (item) => {
+    const isInFavourite = props.favourite.find((el) => el === item);
+    if (isInFavourite) {
+      console.log("item is already in favourite");
+      return;
+    }
+    setText("Added To Favourite");
+    // console.log("added to favourite");
+    props.addToCartInfoHandler();
+    props.addToFavourite(item);
   };
   return (
     <>
       <div>
-        <AddToCartInfo />
+        <AddToCartInfo text={text} />
         <ul className="products-list">
           {props.productList !== "" &&
             props.productList.map((el, index) => {
@@ -48,11 +61,18 @@ function ProductsHome(props) {
                         {(el.price * props.currency.currencyValue).toFixed(2)}
                       </h3>
                       <p className="sub-item__description">{el.description}</p>
-                      <button
-                        className="sub-item__button"
-                        onClick={() => addToCartHandler(el)}>
-                        <FontAwesomeIcon icon={faShoppingCart} />
-                      </button>
+                      <div className="button-group">
+                        <button
+                          className="sub-item__button"
+                          onClick={() => addToCartHandler(el)}>
+                          <FontAwesomeIcon icon={faShoppingCart} />
+                        </button>
+                        <button
+                          className="sub-item__button"
+                          onClick={() => addToFavourite(el)}>
+                          <FontAwesomeIcon icon={faHeart} />
+                        </button>
+                      </div>
                     </div>
                   </li>
                 );
@@ -69,12 +89,15 @@ const mapStateToProps = (state) => {
     currency: state.currency,
     cart: state.cart,
     addToCartInfo: state.addToCartInfo,
+    favourite: state.favourite,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch({ type: "ADD_PRODUCT_TO_CART", product }),
     addToCartInfoHandler: () => dispatch({ type: "CHANGE_ADD_TO_CART_INFO" }),
+    addToFavourite: (product) =>
+      dispatch({ type: "ADD_TO_FAVOURITE", product }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsHome);

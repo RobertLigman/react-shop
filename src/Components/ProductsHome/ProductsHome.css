@@ -130,6 +130,11 @@
     }
 }
 
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
 @media (min-width: 1200px) {
     .products-list {
         max-width: 1200px;

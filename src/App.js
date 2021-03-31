@@ -10,6 +10,7 @@ import UsefullLinks from "./Components/UsefullLinks/UsefullLinks";
 import Footer from "./Components/Footer/Footer";
 import FullCart from "./Components/FullCart/FullCart";
 import LookBook from "./Components/LookBook/LookBook";
+import Favourite from "./Components/Favourite/Favourite";
 function App() {
   return (
     <div className="App">
@@ -28,9 +29,20 @@ function App() {
             </>
           )}
         />
+        <Route
+          path="/view your look book"
+          render={() => (
+            <>
+              <Header />
+              <Favourite />
+              <UsefullLinks />
+              <Footer />
+            </>
+          )}
+        />
 
         {/* </Route> */}
-        <Route>
+        <Route exact path="/">
           <Header />
           <Hero />
           <ProductsHome />

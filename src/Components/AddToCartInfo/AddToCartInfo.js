@@ -17,7 +17,7 @@ function AddToCartInfo(props) {
       classNames="cart"
       unmountOnExit
       onExit={() => props.addToCartInfoHandler()}>
-      <div className="add-to-cart-modal">Dodano Do koszyka</div>
+      <div className="add-to-cart-modal">{props.text}</div>
     </CSSTransition>
   );
 }

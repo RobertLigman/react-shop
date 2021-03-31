@@ -27,6 +27,7 @@ const initialState = {
     email: "",
     password: "",
   },
+  favourite: [],
   cart: [
     // {
     //   id: 1,
@@ -60,6 +61,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter((el) => el !== action.item),
+      };
+    case "REMOVE_FROM_FAVOURITE":
+      return {
+        ...state,
+        favourite: state.cart.filter((el) => el !== action.product),
+      };
+    case "ADD_TO_FAVOURITE":
+      return {
+        ...state,
+        favourite: state.favourite.concat(action.product),
       };
     case "CHANGE_CURRENCY":
       return {
