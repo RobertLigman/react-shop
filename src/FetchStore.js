@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 const FetchStore = (props) => {
   useEffect(() => {
@@ -16,17 +16,21 @@ const FetchStore = (props) => {
           return { ...el, image: imgSrc.join(".") };
         });
         props.updateStoreStock(updatedData);
+        props.setIsLoading(false);
       });
   }, []);
   return <></>;
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    isLoading: state.isLoading,
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     updateStoreStock: (items) => dispatch({ type: "UPDATE_STORE", items }),
+    setIsLoading: () => dispatch({ type: "SET_IS_LOADING" }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(FetchStore);

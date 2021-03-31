@@ -4,6 +4,7 @@ const initialState = {
     currencyValue: 0.73,
     currencySymbol: "£",
   },
+  isLoading: true,
   addToCartInfo: false,
   currencyOptions: [
     {
@@ -52,6 +53,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.items,
+      };
+    case "SET_IS_LOADING":
+      return {
+        ...state,
+        isLoading: false,
       };
     case "CHANGE_ADD_TO_CART_INFO":
       return {

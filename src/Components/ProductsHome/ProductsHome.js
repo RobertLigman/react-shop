@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import "./ProductsHome.css";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import AddToCartInfo from "../AddToCartInfo/AddToCartInfo";
+import Loading from "../Loading/Loading";
 function ProductsHome(props) {
   const [text, setText] = useState("");
 
@@ -35,55 +36,62 @@ function ProductsHome(props) {
   // const renderProducts = ;
   return (
     <>
-      <div>
-        <AddToCartInfo text={text} />
-        <ul className="products-list">
-          {props.productList !== "" &&
-            props.productList
-              .filter((el) => el.category === props.category)
-              .map((el, index) => {
-                // if (index <= 5)
-                return (
-                  <li
-                    key={el.id}
-                    className={`products-list__item item-nb-${index}`}>
-                    {/* <div className="item__title">{el.title}</div> */}
-                    <div className="item__price">
-                      {props.currency.currencySymbol}{" "}
-                      {(el.price * props.currency.currencyValue).toFixed(2)}
-                    </div>
-                    <div>
-                      <img
-                        src={el.image}
-                        alt={el.title}
-                        className="product-img"
-                      />
-                    </div>
-
-                    <div className="products-list__sub-item">
-                      <h3 className="sub-item__title">
-                        {el.title} {props.currency.currencySymbol}
+      {" "}
+      {props.isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          <AddToCartInfo text={text} />
+          <ul className="products-list">
+            {props.productList !== "" &&
+              props.productList
+                .filter((el) => el.category === props.category)
+                .map((el, index) => {
+                  // if (index <= 5)
+                  return (
+                    <li
+                      key={el.id}
+                      className={`products-list__item item-nb-${index}`}>
+                      {/* <div className="item__title">{el.title}</div> */}
+                      <div className="item__price">
+                        {props.currency.currencySymbol}{" "}
                         {(el.price * props.currency.currencyValue).toFixed(2)}
-                      </h3>
-                      <p className="sub-item__description">{el.description}</p>
-                      <div className="button-group">
-                        <button
-                          className="sub-item__button"
-                          onClick={() => addToCartHandler(el)}>
-                          <FontAwesomeIcon icon={faShoppingCart} />
-                        </button>
-                        <button
-                          className="sub-item__button"
-                          onClick={() => addToFavourite(el)}>
-                          <FontAwesomeIcon icon={faHeart} />
-                        </button>
                       </div>
-                    </div>
-                  </li>
-                );
-              })}
-        </ul>
-      </div>
+                      <div>
+                        <img
+                          src={el.image}
+                          alt={el.title}
+                          className="product-img"
+                        />
+                      </div>
+
+                      <div className="products-list__sub-item">
+                        <h3 className="sub-item__title">
+                          {el.title} {props.currency.currencySymbol}
+                          {(el.price * props.currency.currencyValue).toFixed(2)}
+                        </h3>
+                        <p className="sub-item__description">
+                          {el.description}
+                        </p>
+                        <div className="button-group">
+                          <button
+                            className="sub-item__button"
+                            onClick={() => addToCartHandler(el)}>
+                            <FontAwesomeIcon icon={faShoppingCart} />
+                          </button>
+                          <button
+                            className="sub-item__button"
+                            onClick={() => addToFavourite(el)}>
+                            <FontAwesomeIcon icon={faHeart} />
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+          </ul>
+        </div>
+      )}
       <HorizontalLine />
     </>
   );
@@ -95,6 +103,7 @@ const mapStateToProps = (state) => {
     cart: state.cart,
     addToCartInfo: state.addToCartInfo,
     favourite: state.favourite,
+    isLoading: state.isLoading,
   };
 };
 const mapDispatchToProps = (dispatch) => {
