@@ -4,6 +4,7 @@ const initialState = {
     currencyValue: 0.73,
     currencySymbol: "£",
   },
+  addToCartInfo: false,
   currencyOptions: [
     {
       currencyName: "GBP",
@@ -27,18 +28,18 @@ const initialState = {
     password: "",
   },
   cart: [
-    {
-      id: 1,
-      title: "Jacket",
-      price: 22.33,
-      img: "",
-    },
-    {
-      id: 2,
-      title: "T Shirt",
-      price: 11.99,
-      img: "",
-    },
+    // {
+    //   id: 1,
+    //   title: "Jacket",
+    //   price: 22.33,
+    //   img: "",
+    // },
+    // {
+    //   id: 2,
+    //   title: "T Shirt",
+    //   price: 11.99,
+    //   img: "",
+    // },
   ],
   products: "",
 };
@@ -50,7 +51,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: action.items,
       };
-
+    case "CHANGE_ADD_TO_CART_INFO":
+      return {
+        ...state,
+        addToCartInfo: !state.addToCartInfo,
+      };
     case "CHANGE_CURRENCY":
       return {
         ...state,
