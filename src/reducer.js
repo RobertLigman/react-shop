@@ -56,6 +56,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         addToCartInfo: !state.addToCartInfo,
       };
+    case "DELETE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((el) => el !== action.item),
+      };
     case "CHANGE_CURRENCY":
       return {
         ...state,

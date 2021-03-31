@@ -1,6 +1,7 @@
 import {
   faChevronDown,
   faShoppingCart,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -30,6 +31,11 @@ function ShoppingCart(props) {
                     {(el.price * props.currency.currencyValue).toFixed(2)}
                     {props.currency.currencyName}
                   </p>
+                  <button
+                    className="btn-delete"
+                    onClick={() => props.deleteFromCart(el)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
                 </div>
               );
             return <></>;
@@ -51,6 +57,8 @@ const mapStateToProps = (state) => {
   return { cart: state.cart, currency: state.currency };
 };
 const dispatchStateToProps = (dispatch) => {
-  return {};
+  return {
+    deleteFromCart: (item) => dispatch({ type: "DELETE_FROM_CART", item }),
+  };
 };
 export default connect(mapStateToProps, dispatchStateToProps)(ShoppingCart);
