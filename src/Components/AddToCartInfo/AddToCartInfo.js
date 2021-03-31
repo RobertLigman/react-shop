@@ -8,7 +8,7 @@ function AddToCartInfo(props) {
   //       props.addToCartInfoHandler();
   //     }, 5000);
   //   }, []);
-  console.log(props.addToCartInfo);
+  // console.log(props.addToCartInfo);
   return (
     <CSSTransition
       //   in={props.addToCartInfo}

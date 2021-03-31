@@ -8,6 +8,7 @@ import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import AddToCartInfo from "../AddToCartInfo/AddToCartInfo";
 function ProductsHome(props) {
   const [text, setText] = useState("");
+
   const addToCartHandler = (item) => {
     const isInCart = props.cart.find((el) => el.title === item.title);
     if (isInCart) {
@@ -30,14 +31,18 @@ function ProductsHome(props) {
     props.addToCartInfoHandler();
     props.addToFavourite(item);
   };
+
+  // const renderProducts = ;
   return (
     <>
       <div>
         <AddToCartInfo text={text} />
         <ul className="products-list">
           {props.productList !== "" &&
-            props.productList.map((el, index) => {
-              if (index <= 5)
+            props.productList
+              .filter((el) => el.category === props.category)
+              .map((el, index) => {
+                // if (index <= 5)
                 return (
                   <li
                     key={el.id}
@@ -76,7 +81,7 @@ function ProductsHome(props) {
                     </div>
                   </li>
                 );
-            })}
+              })}
         </ul>
       </div>
       <HorizontalLine />

@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import FullCart from "./Components/FullCart/FullCart";
 import LookBook from "./Components/LookBook/LookBook";
 import Favourite from "./Components/Favourite/Favourite";
+import Categories from "./Components/Categories/Categories";
 function App() {
   return (
     <div className="App">
@@ -42,10 +43,23 @@ function App() {
         />
 
         {/* </Route> */}
-        <Route exact path="/">
+        <Route path="/">
           <Header />
           <Hero />
-          <ProductsHome />
+          <Categories />
+          <Switch>
+            <Route path="/categories/jewelery">
+              <ProductsHome category="jewelery" />
+            </Route>
+            <Route path="/categories/electronics">
+              <ProductsHome category="electronics" />
+            </Route>
+            <Route path="/categories/women clothing">
+              <ProductsHome category="women clothing" />
+            </Route>
+            <ProductsHome category="men clothing" />
+          </Switch>
+
           <LookBook />
           <UsefullLinks />
           <Footer />

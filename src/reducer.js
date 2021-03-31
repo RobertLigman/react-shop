@@ -28,6 +28,7 @@ const initialState = {
     password: "",
   },
   favourite: [],
+  categories: [],
   cart: [
     // {
     //   id: 1,
@@ -56,6 +57,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         addToCartInfo: !state.addToCartInfo,
+      };
+    case "UPDATE_CATEGORIES":
+      return {
+        ...state,
+        categories: action.items,
       };
     case "DELETE_FROM_CART":
       return {
