@@ -10,12 +10,12 @@ const FetchStore = (props) => {
         },
       })
       .then((res) => {
-        const updatedData = res.data.map((el) => {
-          const imgSrc = el.image.split(".");
-          imgSrc.splice(1, 0, "herokuapp");
-          return { ...el, image: imgSrc.join(".") };
-        });
-        props.updateStoreStock(updatedData);
+        // const updatedData = res.data.map((el) => {
+        //   const imgSrc = el.image.split(".");
+        //   imgSrc.splice(1, 0, "herokuapp");
+        //   return { ...el, image: imgSrc.join(".") };
+        // });
+        props.updateStoreStock(res.data);
         props.setIsLoading(false);
       });
   }, []);
