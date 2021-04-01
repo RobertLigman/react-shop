@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Auth.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 function Auth(props) {
+  const submitRegister = useRef(null);
   const [details, setDetails] = useState({
     isLogged: props.isLogged,
     email: "",
@@ -14,12 +15,11 @@ function Auth(props) {
   const [err, setErr] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
     if (err !== "") return;
     setErr("");
     if (details.password.split("").length < 6)
       return setErr("password must contains at least 6 characters");
-
     setDetails({ ...details, isLogged: true });
     props.UserRegistration({ ...details, isLogged: true });
     setErr("");
@@ -107,7 +107,8 @@ function Auth(props) {
               <button
                 type="submit"
                 onClick={checkPasswords}
-                className="submit__button">
+                className="submit__button"
+                ref={submitRegister}>
                 Create account
               </button>
               <p className="privacy-policy">

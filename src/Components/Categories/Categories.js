@@ -24,7 +24,7 @@ function Categories(props) {
         // console.log(res);
         props.updateCategories(res.data);
       });
-  }, []);
+  });
   return (
     <ul className="Categories">
       {props.categories.length > 0 &&
@@ -32,7 +32,7 @@ function Categories(props) {
           <li key={el}>
             <Link
               to={`/categories/${el}`}
-              className={`Categories__link ${index == 0 ? "active" : ""}`}
+              className={`Categories__link ${index === 0 ? "active" : ""}`}
               onClick={(e) => handleClick(e)}>
               {el}
             </Link>

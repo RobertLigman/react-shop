@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 import "./AddToCartInfo.css";

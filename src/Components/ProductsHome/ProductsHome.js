@@ -101,7 +101,7 @@ function ProductsHome(props) {
           </CSSTransition>
         </div>
       )}
-      <HorizontalLine />
+      {!props.noHr && <HorizontalLine />}
     </>
   );
 }

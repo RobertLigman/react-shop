@@ -17,7 +17,8 @@
 
 .gallery {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: auto;
+    margin-top: 50px;
     /* min-height: 80vh; */
     display: grid;
     gap: 15px;

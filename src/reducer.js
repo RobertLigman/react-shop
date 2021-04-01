@@ -112,7 +112,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginDetails: action.details,
       };
+    default:
+      return state;
   }
-  return state;
 };
 export default reducer;

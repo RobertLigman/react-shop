@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 const FetchStore = (props) => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const FetchStore = (props) => {
         props.updateStoreStock(res.data);
         props.setIsLoading(false);
       });
-  }, []);
+  });
   return <></>;
 };
 
