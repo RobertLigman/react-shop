@@ -1,0 +1,32 @@
+.Categories {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+    max-width: 100vw;
+    margin: auto;
+}
+
+.Categories__link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+}
+
+.Categories__link.active {
+    color: #00c8c8;
+}
+
+@media screen and (min-width: 476px) {
+    .Categories {
+        grid-template-columns: repeat(4, auto);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .Categories {
+        padding-left: 30px;
+        max-width: 1200px;
+        justify-content: left;
+    }
+}

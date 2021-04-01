@@ -1,3 +1,7 @@
+.Products-Home-wrapper {
+    min-height: 80vh;
+}
+
 .products-list {
     display: grid;
     margin: auto;
@@ -91,6 +95,25 @@
 .product-img {
     width: 100%;
     z-index: 1;
+}
+
+
+/* .product-enter {
+    opacity: 0;
+}
+
+.product-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms linear;
+} */
+
+.product-appear {
+    opacity: 0;
+}
+
+.product-appear-active {
+    opacity: 1;
+    transition: opacity 1000ms linear;
 }
 
 @media (min-width: 768px) {
