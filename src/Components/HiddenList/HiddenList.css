@@ -1,9 +1,7 @@
 .sublist-container {
     opacity: 0;
     display: none;
-    position: absolute;
-    top: 100px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px 0 #ddd;
     background-color: #fff;
@@ -39,4 +37,12 @@
     text-transform: capitalize;
     font-size: 0.95rem;
     color: #686868;
+}
+
+@media screen and (min-width: 1024px) {
+    .sublist-container {
+        position: absolute;
+        top: 100px;
+        grid-template-columns: 1fr 1fr;
+    }
 }
