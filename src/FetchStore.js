@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const FetchStore = (props) => {
   useEffect(() => {
     axios
-      .get("/products", {
+      .get("https://fakestoreapi.com/products", {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },

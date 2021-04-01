@@ -15,7 +15,7 @@ function Categories(props) {
   };
   useEffect(() => {
     axios
-      .get("/products/categories", {
+      .get("https://fakestoreapi.com/products/categories", {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
