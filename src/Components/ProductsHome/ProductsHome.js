@@ -48,7 +48,7 @@ function ProductsHome(props) {
             timeout={1000}
             unmountOnExit
             classNames="product">
-            <ul className="products-list">
+            <ul className={`${props.gallery ? "gallery" : "products-list"}`}>
               {props.productList !== "" &&
                 props.productList
                   .filter((el) => el.category === props.category)

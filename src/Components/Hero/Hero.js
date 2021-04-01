@@ -46,7 +46,7 @@ export default function Hero() {
             </li>
           </ul>
         </nav>
-        <Link to="" className="hero__button">
+        <Link to="/mens" className="hero__button">
           shop men's collection
         </Link>
       </main>

@@ -15,6 +15,17 @@
     list-style: none;
 }
 
+.gallery {
+    max-width: 1200px;
+    margin: 50px auto;
+    /* min-height: 80vh; */
+    display: grid;
+    gap: 15px;
+    grid-template-areas: "a b c d" "e f g h" "i j k l";
+    justify-content: center;
+    align-content: center;
+}
+
 .products-list__item {
     /* margin: 0; */
     height: 100%;

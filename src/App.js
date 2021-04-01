@@ -12,6 +12,7 @@ import FullCart from "./Components/FullCart/FullCart";
 import LookBook from "./Components/LookBook/LookBook";
 import Favourite from "./Components/Favourite/Favourite";
 import Categories from "./Components/Categories/Categories";
+import Mens from "./Components/Mens/Mens";
 function App() {
   return (
     <div className="App">
@@ -41,7 +42,11 @@ function App() {
             </>
           )}
         />
-
+        <Route path="/mens">
+          <Header />
+          <Mens />
+          <Footer />
+        </Route>
         {/* </Route> */}
         <Route path="/">
           <Header />
