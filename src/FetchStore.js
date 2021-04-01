@@ -17,6 +17,10 @@ const FetchStore = (props) => {
         // });
         props.updateStoreStock(res.data);
         props.setIsLoading(false);
+      })
+      .catch((err) => {
+        props.setIsLoading(false);
+        console.log(err);
       });
   });
   return <></>;
