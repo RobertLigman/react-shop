@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# This site is deployed on Netlify
+
+You can check it by clicking link: https://ecstatic-spence-121779.netlify.app
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
