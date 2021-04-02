@@ -28,8 +28,11 @@ const initialState = {
     email: "",
     password: "",
   },
+  text: "",
+  modalDetails: {},
   favourite: [],
   categories: [],
+  isModalOpen: false,
   cart: [
     // {
     //   id: 1,
@@ -54,10 +57,20 @@ const reducer = (state = initialState, action) => {
         ...state,
         products: action.items,
       };
+    case "SET_TEXT":
+      return {
+        ...state,
+        text: action.text,
+      };
     case "SET_IS_LOADING":
       return {
         ...state,
         isLoading: false,
+      };
+    case "UPDATE_MODAL_DETAILS":
+      return {
+        ...state,
+        modalDetails: action.product,
       };
     case "CHANGE_ADD_TO_CART_INFO":
       return {
@@ -107,6 +120,11 @@ const reducer = (state = initialState, action) => {
         },
       };
     }
+    case "SET_IS_MODAL_OPEN":
+      return {
+        ...state,
+        isModalOpen: state.isModalOpen === true ? false : true,
+      };
     case "SET_LOGIN_DETAILS":
       return {
         ...state,

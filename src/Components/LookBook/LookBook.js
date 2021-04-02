@@ -36,7 +36,7 @@ function LookBook() {
     <>
       <div className="LookBook">
         {lookbookItems.map((el) => (
-          <div className="lookbook__item">
+          <div className="lookbook__item" key={el.id}>
             <div className="item__img-container">
               <img src={el.img} alt={el.title} />
             </div>

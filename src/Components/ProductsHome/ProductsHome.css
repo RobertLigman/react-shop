@@ -60,7 +60,7 @@
     top: 100%;
     right: 0;
     left: 0;
-    z-index: 1001;
+    z-index: 800;
     transition: opacity 0.2s ease-in;
     font-size: 0.7rem;
     color: #575153;

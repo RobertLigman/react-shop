@@ -13,9 +13,11 @@ import LookBook from "./Components/LookBook/LookBook";
 import Favourite from "./Components/Favourite/Favourite";
 import Categories from "./Components/Categories/Categories";
 import Mens from "./Components/Mens/Mens";
+import Modal from "./Components/Modal/Modal";
 function App() {
   return (
     <div className="App">
+      <Modal />
       <FetchStore />
       <Switch>
         <Route path="/register" component={Register}></Route>

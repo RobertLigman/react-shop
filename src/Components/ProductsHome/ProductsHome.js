@@ -1,7 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faExpand,
+  faHeart,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
 import "./ProductsHome.css";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
@@ -9,31 +13,37 @@ import AddToCartInfo from "../AddToCartInfo/AddToCartInfo";
 import Loading from "../Loading/Loading";
 import { CSSTransition } from "react-transition-group";
 function ProductsHome(props) {
-  const [text, setText] = useState("");
-
+  // const [text, setText] = useState("");
+  const nodeRef = useRef(null);
   const addToCartHandler = (item) => {
     const isInCart = props.cart.find((el) => el.title === item.title);
     if (isInCart) {
-      console.log("item is already in cart");
+      props.setText("item is already in cart");
+      props.addToCartInfoHandler();
 
       return;
     }
-    setText("Added To Cart");
+    props.setText("Added To Cart");
     props.addToCartInfoHandler();
     props.addToCart(item);
   };
   const addToFavourite = (item) => {
     const isInFavourite = props.favourite.find((el) => el === item);
     if (isInFavourite) {
-      console.log("item is already in favourite");
+      props.setText("item is already in favourite");
+      props.addToCartInfoHandler();
       return;
     }
-    setText("Added To Favourite");
+    props.setText("Added To Favourite");
     // console.log("added to favourite");
     props.addToCartInfoHandler();
     props.addToFavourite(item);
   };
-
+  const expandModal = (item) => {
+    props.updateModalDetails(item);
+    props.setIsModalOpen();
+    console.log(item);
+  };
   // const renderProducts = ;
   return (
     <>
@@ -41,8 +51,9 @@ function ProductsHome(props) {
         <Loading />
       ) : (
         <div className="Products-Home-wrapper">
-          <AddToCartInfo text={text} />
+          <AddToCartInfo text={props.text} />
           <CSSTransition
+            nodeRef={nodeRef}
             appear={true}
             in={true}
             timeout={1000}
@@ -92,6 +103,11 @@ function ProductsHome(props) {
                               onClick={() => addToFavourite(el)}>
                               <FontAwesomeIcon icon={faHeart} />
                             </button>
+                            <button
+                              className="sub-item__button"
+                              onClick={() => expandModal(el)}>
+                              <FontAwesomeIcon icon={faExpand} />
+                            </button>
                           </div>
                         </div>
                       </li>
@@ -113,6 +129,7 @@ const mapStateToProps = (state) => {
     addToCartInfo: state.addToCartInfo,
     favourite: state.favourite,
     isLoading: state.isLoading,
+    text: state.text,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -121,6 +138,10 @@ const mapDispatchToProps = (dispatch) => {
     addToCartInfoHandler: () => dispatch({ type: "CHANGE_ADD_TO_CART_INFO" }),
     addToFavourite: (product) =>
       dispatch({ type: "ADD_TO_FAVOURITE", product }),
+    setIsModalOpen: () => dispatch({ type: "SET_IS_MODAL_OPEN" }),
+    updateModalDetails: (product) =>
+      dispatch({ type: "UPDATE_MODAL_DETAILS", product }),
+    setText: (text) => dispatch({ type: "SET_TEXT", text }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsHome);
