@@ -7,6 +7,7 @@
     background-color: #fff;
     padding: 40px;
     gap: 50px;
+    z-index: 10;
 }
 
 .hidden-list__description {
@@ -17,6 +18,12 @@
 }
 
 .list__item:hover .sublist-container {
+    opacity: 1;
+    display: grid;
+}
+
+.sublist-container:hover,
+.hidden-list:hover .sublist-container {
     opacity: 1;
     display: grid;
 }

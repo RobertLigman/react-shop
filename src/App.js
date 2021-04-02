@@ -1,7 +1,7 @@
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import "./App.css";
-import { Route, Switch } from "react-router";
+import { Route, Switch, useParams } from "react-router";
 import Register from "./Components/Register/Register";
 import FetchStore from "./FetchStore";
 import Login from "./Components/Login/Login";
@@ -14,6 +14,15 @@ import Favourite from "./Components/Favourite/Favourite";
 import Categories from "./Components/Categories/Categories";
 import Mens from "./Components/Mens/Mens";
 import Modal from "./Components/Modal/Modal";
+const Item = () => {
+  const { name } = useParams();
+
+  return (
+    <div>
+      <h3>{name}</h3>
+    </div>
+  );
+};
 function App() {
   return (
     <div className="App">
@@ -50,6 +59,12 @@ function App() {
           <Footer />
         </Route>
         {/* </Route> */}
+        <Route path={`/male/:name`}>
+          <Header />
+          <Item />
+          <Footer />
+        </Route>
+
         <Route path="/">
           <Header />
           <Hero />

@@ -3,6 +3,7 @@ import { hiddenList, hiddenListFormal } from "./HiddenListAssets";
 import { Link } from "react-router-dom";
 import ListItem from "../ListItem/ListItem";
 import "./HiddenList.css";
+
 export default function HiddenList(props) {
   return (
     <div className="sublist-container">

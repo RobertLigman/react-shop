@@ -6,6 +6,7 @@ import "./Hero.css";
 import ListItem from "../ListItem/ListItem";
 import HiddenList from "../HiddenList/HiddenList";
 import HorizontalLine from "../HorizontalLine/HorizontalLine";
+
 export default function Hero() {
   return (
     <>
@@ -50,6 +51,7 @@ export default function Hero() {
           shop men's collection
         </Link>
       </main>
+
       <HorizontalLine />
     </>
   );
