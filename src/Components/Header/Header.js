@@ -62,9 +62,9 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    currency: state.currency,
-    currencyOptions: state.currencyOptions,
-    loginDetails: state.loginDetails,
+    currency: state.mainReducer.currency,
+    currencyOptions: state.mainReducer.currencyOptions,
+    loginDetails: state.mainReducer.loginDetails,
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -54,7 +54,10 @@ function ShoppingCart(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { cart: state.cart, currency: state.currency };
+  return {
+    cart: state.storeReducer.cart,
+    currency: state.mainReducer.currency,
+  };
 };
 const dispatchStateToProps = (dispatch) => {
   return {

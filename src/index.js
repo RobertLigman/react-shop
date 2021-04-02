@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducer";
-const store = createStore(reducer);
+import storeReducer from "./storeReducer";
+const rootReducer = combineReducers({ mainReducer: reducer, storeReducer });
+const store = createStore(rootReducer);
+console.log(store.getState());
 ReactDOM.render(
   <Router>
     <Provider store={store}>

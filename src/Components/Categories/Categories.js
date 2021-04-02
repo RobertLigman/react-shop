@@ -44,7 +44,7 @@ function Categories(props) {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories,
+    categories: state.storeReducer.categories,
   };
 };
 const mapDispatchToProps = (dispatch) => {

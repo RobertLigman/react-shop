@@ -24,7 +24,7 @@ function AddToCartInfo(props) {
 
 const mapStateToProps = (state) => {
   return {
-    addToCartInfo: state.addToCartInfo,
+    addToCartInfo: state.mainReducer.addToCartInfo,
   };
 };
 const mapDispatchToProps = (dispatch) => {

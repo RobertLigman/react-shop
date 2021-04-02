@@ -30,33 +30,11 @@ const initialState = {
   },
   text: "",
   modalDetails: {},
-  favourite: [],
-  categories: [],
   isModalOpen: false,
-  cart: [
-    // {
-    //   id: 1,
-    //   title: "Jacket",
-    //   price: 22.33,
-    //   img: "",
-    // },
-    // {
-    //   id: 2,
-    //   title: "T Shirt",
-    //   price: 11.99,
-    //   img: "",
-    // },
-  ],
-  products: "",
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "UPDATE_STORE":
-      return {
-        ...state,
-        products: action.items,
-      };
     case "SET_TEXT":
       return {
         ...state,
@@ -77,26 +55,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         addToCartInfo: !state.addToCartInfo,
       };
-    case "UPDATE_CATEGORIES":
-      return {
-        ...state,
-        categories: action.items,
-      };
-    case "DELETE_FROM_CART":
-      return {
-        ...state,
-        cart: state.cart.filter((el) => el !== action.item),
-      };
-    case "REMOVE_FROM_FAVOURITE":
-      return {
-        ...state,
-        favourite: state.cart.filter((el) => el !== action.product),
-      };
-    case "ADD_TO_FAVOURITE":
-      return {
-        ...state,
-        favourite: state.favourite.concat(action.product),
-      };
+
     case "CHANGE_CURRENCY":
       return {
         ...state,
@@ -104,11 +63,7 @@ const reducer = (state = initialState, action) => {
           (el) => el.currencyName === action.currencyName
         )[0],
       };
-    case "ADD_PRODUCT_TO_CART":
-      return {
-        ...state,
-        cart: state.cart.concat(action.product),
-      };
+
     case "LOG_OUT": {
       localStorage.removeItem("loginSession");
       return {

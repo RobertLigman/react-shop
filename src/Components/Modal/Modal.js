@@ -85,9 +85,9 @@ const Modal = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
-    isModalOpen: state.isModalOpen,
-    modalDetails: state.modalDetails,
+    cart: state.storeReducer.cart,
+    isModalOpen: state.mainReducer.isModalOpen,
+    modalDetails: state.mainReducer.modalDetails,
   };
 };
 const mapDispatchToProps = (dispatch) => {

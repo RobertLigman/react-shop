@@ -123,13 +123,13 @@ function ProductsHome(props) {
 }
 const mapStateToProps = (state) => {
   return {
-    productList: state.products,
-    currency: state.currency,
-    cart: state.cart,
-    addToCartInfo: state.addToCartInfo,
-    favourite: state.favourite,
-    isLoading: state.isLoading,
-    text: state.text,
+    productList: state.storeReducer.products,
+    currency: state.mainReducer.currency,
+    cart: state.storeReducer.cart,
+    addToCartInfo: state.mainReducer.addToCartInfo,
+    favourite: state.storeReducer.favourite,
+    isLoading: state.mainReducer.isLoading,
+    text: state.mainReducer.text,
   };
 };
 const mapDispatchToProps = (dispatch) => {
