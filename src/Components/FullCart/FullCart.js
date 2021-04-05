@@ -24,7 +24,7 @@ function FullCart(props) {
           </button>
         </div>
       ))}
-      <Link to="/">Return to main page</Link>
+      <BackToMainPage />
       <button className="btn-checkout">Checkout</button>
     </div>
   ) : (

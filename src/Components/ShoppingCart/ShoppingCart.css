@@ -22,7 +22,7 @@
 }
 
 .shopping-cart {
-    display: grid;
+    display: none;
     color: black;
     text-align: center;
     min-width: 200px;
@@ -32,8 +32,9 @@
     gap: 10px;
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    right: 0;
+    /* transform: translateX(-50%); */
     z-index: 1000;
     overflow: hidden;
     opacity: 0;
@@ -78,9 +79,14 @@
     color: #ddd;
 }
 
-.cart:hover .shopping-cart {
-    visibility: visible;
-    opacity: 1;
+@media screen and (min-width: 1024px) {
+    .shopping-cart {
+        display: grid;
+    }
+    .cart:hover .shopping-cart {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -90,5 +96,9 @@
     }
     .btn-delete:hover {
         background-color: red;
+    }
+    .shopping-cart {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

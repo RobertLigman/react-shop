@@ -1,6 +1,7 @@
 .Full-cart {
-    width: 100vw;
+    max-width: 80vw;
     margin: 50px auto;
+    min-height: 25vh;
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -35,6 +36,12 @@
 
 .product__img {
     width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .Full-cart {
+        width: 60vw;
+    }
 }
 
 @media (min-width: 1200px) {
