@@ -70,23 +70,6 @@
     text-transform: uppercase;
 }
 
-.sub-item__button {
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border: none;
-    color: #fff;
-    background-color: #4e4b4c;
-    transition: background-color 0.2s ease-in;
-    cursor: pointer;
-}
-
-.sub-item__button:hover {
-    background-color: #00c8c8;
-}
-
 .products-list__sub-item:hover {
     /* display: grid; */
     opacity: 1;
@@ -163,11 +146,6 @@
     .item-nb-5 {
         grid-area: f;
     }
-}
-
-.button-group {
-    display: flex;
-    gap: 10px;
 }
 
 @media (min-width: 1200px) {

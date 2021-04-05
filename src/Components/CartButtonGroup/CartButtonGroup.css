@@ -1,0 +1,21 @@
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.sub-item__button {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: #4e4b4c;
+    transition: background-color 0.2s ease-in;
+    cursor: pointer;
+}
+
+.sub-item__button:hover {
+    background-color: #00c8c8;
+}

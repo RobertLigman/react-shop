@@ -138,7 +138,7 @@ function Auth(props) {
 }
 const mapStateToProps = (state) => {
   return {
-    isLogged: state.loginDetails.isLogged,
+    isLogged: state.mainReducer.loginDetails.isLogged,
   };
 };
 const mapDispatchToProps = (dispatch) => {

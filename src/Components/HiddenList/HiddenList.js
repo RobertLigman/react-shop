@@ -1,10 +1,20 @@
 import React from "react";
-import { hiddenList, hiddenListFormal } from "./HiddenListAssets";
+import {
+  femaleHiddenList,
+  femaleHiddenListFormal,
+  maleHiddenListFormal,
+  maleHiddenList,
+} from "./HiddenListAssets";
 import { Link } from "react-router-dom";
 import ListItem from "../ListItem/ListItem";
 import "./HiddenList.css";
 
 export default function HiddenList(props) {
+  const hiddenList =
+    props.gender === "male" ? maleHiddenList : femaleHiddenList;
+  const hiddenListFormal =
+    props.gender === "male" ? maleHiddenListFormal : femaleHiddenListFormal;
+
   return (
     <div className="sublist-container">
       <ul className="hidden-list">

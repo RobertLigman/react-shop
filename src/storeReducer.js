@@ -1,6 +1,7 @@
 const initialState = {
   favourite: [],
   categories: [],
+  defaultFavourite: [],
   cart: [
     // {
     //   id: 1,
@@ -24,6 +25,11 @@ const storeReducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.items,
+      };
+    case "SET_DEFAULT_FAVOURITE":
+      return {
+        ...state,
+        defaultFavourite: action.items,
       };
     case "UPDATE_CATEGORIES":
       return {

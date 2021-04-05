@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
     case "SET_IS_LOADING":
       return {
         ...state,
-        isLoading: false,
+        isLoading: action.boolean,
       };
     case "UPDATE_MODAL_DETAILS":
       return {

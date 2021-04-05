@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
 import "./Categories.css";
 function Categories(props) {
+  const location = useLocation();
   const handleClick = (item) => {
     // item.siblings.classList.remove("active");
     console.log("click");
     document.querySelectorAll(".Categories__link").forEach((el) => {
-      console.log(el);
+      // console.log(el);
       el.classList.remove("active");
     });
     item.target.classList.add("active");
@@ -25,6 +27,7 @@ function Categories(props) {
         props.updateCategories(res.data);
       });
   });
+
   return (
     <ul className="Categories">
       {props.categories.length > 0 &&
@@ -32,7 +35,13 @@ function Categories(props) {
           <li key={el}>
             <Link
               to={`/categories/${el}`}
-              className={`Categories__link ${index === 0 ? "active" : ""}`}
+              className={`Categories__link ${
+                location.pathname === `/categories/${el}`
+                  ? "active"
+                  : index === 0 && location.pathname === `/`
+                  ? "active"
+                  : ""
+              }`}
               onClick={(e) => handleClick(e)}>
               {el}
             </Link>

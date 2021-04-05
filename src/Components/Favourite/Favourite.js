@@ -2,7 +2,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import BackToMainPage from "../BackToMainPage/BackToMainPage";
 function Favourite(props) {
   return props.favourite.length > 0 ? (
     <div className="Full-cart">
@@ -25,15 +25,15 @@ function Favourite(props) {
   ) : (
     <div>
       <h1>No Favourite Products found</h1>
-      <Link to="/">Return to Main Page</Link>
+      <BackToMainPage />
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    favourite: state.favourite,
-    currency: state.currency,
+    favourite: state.storeReducer.favourite,
+    currency: state.mainReducer.currency,
   };
 };
 const mapDispatchToProps = (dispatch) => {

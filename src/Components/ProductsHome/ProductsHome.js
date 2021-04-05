@@ -1,10 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExpand,
-  faHeart,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
-
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import "./ProductsHome.css";
@@ -12,44 +5,18 @@ import HorizontalLine from "../HorizontalLine/HorizontalLine";
 import AddToCartInfo from "../AddToCartInfo/AddToCartInfo";
 import Loading from "../Loading/Loading";
 import { CSSTransition } from "react-transition-group";
+import CartButtonGroup from "../CartButtonGroup/CartButtonGroup";
 function ProductsHome(props) {
   // const [text, setText] = useState("");
   const nodeRef = useRef(null);
-  const addToCartHandler = (item) => {
-    const isInCart = props.cart.find((el) => el.title === item.title);
-    if (isInCart) {
-      props.setText("item is already in cart");
-      props.addToCartInfoHandler();
 
-      return;
-    }
-    props.setText("Added To Cart");
-    props.addToCartInfoHandler();
-    props.addToCart(item);
-  };
-  const addToFavourite = (item) => {
-    const isInFavourite = props.favourite.find((el) => el === item);
-    if (isInFavourite) {
-      props.setText("item is already in favourite");
-      props.addToCartInfoHandler();
-      return;
-    }
-    props.setText("Added To Favourite");
-    // console.log("added to favourite");
-    props.addToCartInfoHandler();
-    props.addToFavourite(item);
-  };
-  const expandModal = (item) => {
-    props.updateModalDetails(item);
-    props.setIsModalOpen();
-    console.log(item);
-  };
   // const renderProducts = ;
   return (
     <>
       {props.isLoading ? (
         <Loading />
-      ) : (
+      ) : props.productList.filter((el) => el.category === props.category)
+          .length > 0 ? (
         <div className="Products-Home-wrapper">
           <AddToCartInfo text={props.text} />
           <CSSTransition
@@ -92,29 +59,17 @@ function ProductsHome(props) {
                           <p className="sub-item__description">
                             {el.description}
                           </p>
-                          <div className="button-group">
-                            <button
-                              className="sub-item__button"
-                              onClick={() => addToCartHandler(el)}>
-                              <FontAwesomeIcon icon={faShoppingCart} />
-                            </button>
-                            <button
-                              className="sub-item__button"
-                              onClick={() => addToFavourite(el)}>
-                              <FontAwesomeIcon icon={faHeart} />
-                            </button>
-                            <button
-                              className="sub-item__button"
-                              onClick={() => expandModal(el)}>
-                              <FontAwesomeIcon icon={faExpand} />
-                            </button>
-                          </div>
+                          <CartButtonGroup product={el} />
                         </div>
                       </li>
                     );
                   })}
             </ul>
           </CSSTransition>
+        </div>
+      ) : (
+        <div>
+          <h1>No Products Found</h1>
         </div>
       )}
       {!props.noHr && <HorizontalLine />}

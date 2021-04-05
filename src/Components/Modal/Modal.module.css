@@ -25,7 +25,7 @@
     z-index: 10;
     border-radius: 10px;
     gap: 10px;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .ModalImg {

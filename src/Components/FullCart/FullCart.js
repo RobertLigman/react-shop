@@ -4,6 +4,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./FullCart.css";
+import BackToMainPage from "../BackToMainPage/BackToMainPage";
 function FullCart(props) {
   console.log(props.cart);
   return props.cart.length > 0 ? (
@@ -29,15 +30,15 @@ function FullCart(props) {
   ) : (
     <div>
       <h1>Cart is Empty</h1>
-      <Link to="/">Return to main page</Link>
+      <BackToMainPage />
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
-    currency: state.currency,
+    cart: state.storeReducer.cart,
+    currency: state.mainReducer.currency,
   };
 };
 const mapDispatchToProps = (disptach) => {

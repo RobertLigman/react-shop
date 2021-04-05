@@ -16,8 +16,10 @@ const FetchStore = (props) => {
         //   return { ...el, image: imgSrc.join(".") };
         // });
         props.updateStoreStock(res.data);
+        // console.log(res.data);
         props.setIsLoading(false);
       })
+
       .catch((err) => {
         props.setIsLoading(false);
         console.log(err);
@@ -34,7 +36,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateStoreStock: (items) => dispatch({ type: "UPDATE_STORE", items }),
-    setIsLoading: () => dispatch({ type: "SET_IS_LOADING" }),
+    setIsLoading: (boolean) => dispatch({ type: "SET_IS_LOADING", boolean }),
+    setDefaultFavourite: (items) =>
+      dispatch({ type: "SET_DEFAULT_FAVOURITE", items }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(FetchStore);

@@ -1,11 +1,11 @@
-export const hiddenList = [
+export const femaleHiddenList = [
   {
-    name: "Jackets",
-    link: "jackets",
+    name: "women cloting",
+    link: "women clothing",
   },
   {
-    name: "Hoodies & Sweatshirts",
-    link: "h&s",
+    name: "jewelery",
+    link: "jewelery",
   },
   {
     name: "Polo Shirts",
@@ -24,7 +24,51 @@ export const hiddenList = [
     link: "tshirts",
   },
 ];
-export const hiddenListFormal = [
+export const maleHiddenList = [
+  {
+    name: "men cloting",
+    link: "men clothing",
+  },
+  {
+    name: "electronics",
+    link: "electronics",
+  },
+  {
+    name: "Polo Shirts",
+    link: "polo",
+  },
+  {
+    name: "Sportswear",
+    link: "sport",
+  },
+  {
+    name: "Trousers & Chinos",
+    link: "t&c",
+  },
+  {
+    name: "T Shirts",
+    link: "tshirts",
+  },
+];
+export const femaleHiddenListFormal = [
+  {
+    name: "Jackets",
+    link: "f/jackets",
+  },
+  {
+    name: "Shirts",
+    link: "f/shirts",
+  },
+  {
+    name: "Suits",
+    link: "f/suits",
+  },
+  {
+    name: "Trousers",
+    link: "f/trousers",
+  },
+];
+export const maleHiddenListFormal = [
   {
     name: "Jackets",
     link: "f/jackets",

@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 import { connect } from "react-redux";
 import { MdClose } from "react-icons/md";
-import img from "./modal.jpg";
 import styles from "./Modal.module.css";
 
 const Modal = (props) => {
