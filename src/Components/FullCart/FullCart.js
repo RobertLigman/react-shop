@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import "./FullCart.css";
 import BackToMainPage from "../BackToMainPage/BackToMainPage";
 function FullCart(props) {
