@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-shop/static/css/main.567aa27e.chunk.css",
+    "main.js": "/react-shop/static/js/main.a75336fc.chunk.js",
+    "main.js.map": "/react-shop/static/js/main.a75336fc.chunk.js.map",
+    "runtime-main.js": "/react-shop/static/js/runtime-main.51f088a8.js",
+    "runtime-main.js.map": "/react-shop/static/js/runtime-main.51f088a8.js.map",
+    "static/js/2.136da3b5.chunk.js": "/react-shop/static/js/2.136da3b5.chunk.js",
+    "static/js/2.136da3b5.chunk.js.map": "/react-shop/static/js/2.136da3b5.chunk.js.map",
+    "static/js/3.4677de12.chunk.js": "/react-shop/static/js/3.4677de12.chunk.js",
+    "static/js/3.4677de12.chunk.js.map": "/react-shop/static/js/3.4677de12.chunk.js.map",
+    "index.html": "/react-shop/index.html",
+    "static/css/main.567aa27e.chunk.css.map": "/react-shop/static/css/main.567aa27e.chunk.css.map",
+    "static/js/2.136da3b5.chunk.js.LICENSE.txt": "/react-shop/static/js/2.136da3b5.chunk.js.LICENSE.txt",
+    "static/media/mens.0be48292.png": "/react-shop/static/media/mens.0be48292.png",
+    "static/media/Hero.css": "/react-shop/static/media/photo.68fc2c72.jpg",
+    "static/media/womens.ad658b98.png": "/react-shop/static/media/womens.ad658b98.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51f088a8.js",
+    "static/js/2.136da3b5.chunk.js",
+    "static/css/main.567aa27e.chunk.css",
+    "static/js/main.a75336fc.chunk.js"
+  ]
+}
