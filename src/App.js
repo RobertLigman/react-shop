@@ -2,6 +2,7 @@ import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import "./App.css";
 import { Route, Switch } from "react-router";
+import { connect } from "react-redux";
 import Register from "./Components/Register/Register";
 import FetchStore from "./FetchStore";
 import Login from "./Components/Login/Login";
@@ -16,7 +17,7 @@ import Mens from "./Components/Mens/Mens";
 import Modal from "./Components/Modal/Modal";
 import ProductsCategory from "./Components/ProductsCategory/ProductsCategory";
 import DefaultFavourite from "./Components/DefaultFavourite/DefaultFavourite";
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Modal />
@@ -90,17 +91,17 @@ function App() {
           <Hero />
           <Categories />
           <Switch>
-            <Route path="/categories/jewelery">
-              <ProductsHome category="jewelery" />
+            <Route path={`/categories/${props.categories[0]}`}>
+              <ProductsHome category={props.categories[0]} />
             </Route>
-            <Route path="/categories/electronics">
-              <ProductsHome category="electronics" />
+            <Route path={`/categories/${props.categories[1]}`}>
+              <ProductsHome category={props.categories[1]} />
             </Route>
-            <Route path="/categories/women clothing">
-              <ProductsHome category="women clothing" />
+            <Route path={`/categories/${props.categories[2]}`}>
+              <ProductsHome category={props.categories[2]} />
             </Route>
-            <Route path="/categories/men clothing">
-              <ProductsHome category="men clothing" />
+            <Route path={`/categories/${props.categories[3]}`}>
+              <ProductsHome category={props.categories[3]} />
             </Route>
             <ProductsHome category="electronics" />
           </Switch>
@@ -113,5 +114,12 @@ function App() {
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    categories: state.storeReducer.categories,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
